@@ -1,0 +1,209 @@
+---
+title: "Welcome to SOS 598 Research Data Managment"
+subtitle: FALSE
+author: FALSE
+date: "2019-12-11"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "assets/my-theme.css", "libs/remark-css/default-fonts.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r libraries, include=FALSE}
+
+library(tidyverse)
+# library(kableExtra)
+```
+
+#### SOS 598 Research Data Management
+
+* seminar: SOS 598 (201842), 1 credit-hour
+
+* instructors:
+  + Stevan Earl, Data Manager
+  + Philip Tarrant, Director GIOS Informatics & Technology
+
+
+---
+
+#### course overview
+
+* An introduction to tools and techniques that will help you to organize, work with, and publish your research data.
+
+* Hands-on exercises with example data, or your own data if available.
+
+* Grades are based on participation, and completion and quality of assignments.
+
+--
+
+.small[
+| component                                | percentage |
+| :--------------------------------------- | ---------: |
+| student participation (see below)        |         20 |
+| GitHub account & repository              |         10 |
+| R programming (assignment+review)        |      10+10 |
+| database implementation                  |         10 |
+| dataset publishing (assignment+review)   |      10+10 |
+| Data Management Plan (assignment+review) |      10+10 |
+]
+
+**student participation:** Evidence of being prepared for discussion in
+class, including but not limited to having completed reading assignments
+prior to class, contributing insightful comments, and a commitment to
+class activities will demonstrate levels of preparedness and
+participation that enable others to learn from and with you.
+
+
+---
+
+#### office hours
+
+* Monday 3-5, but, really, just about any time by appointment
+
+<iframe src="https://www.asu.edu/map/interactive/" width="1080" height="960" frameBorder="0"</iframe>
+
+
+---
+
+#### learning outcomes
+
+1.  Understand the benefits of a structured approach to managing the
+    data produced by research projects and experiments.
+    
+2.  Recognize data and metadata quality issues and understand the impact
+    on the value of the data.
+    
+3.  Be able to organize data and prepare metadata to facilitate
+    publication of research data.
+    
+4.  Apply data management principles to prepare a Data Management Plan,
+    as required by many funding agencies.
+    
+5.  Know where to seek new knowledge in this rapidly evolving field -
+    unless you are keeping up with it, you are falling behind.
+
+---
+
+#### research data workflow: this is your world (or it will be soon)
+
+<img src="assets/figures/workflow.png" width="100%">
+
+.footnote[J. Bryan from http://stat545.com/]
+
+
+---
+
+* how do you keep that up-to-date?
+
+--
+
+* what if something changes, what if something needs to be redone - how do you manage that?
+
+--
+
+* why do the results in table 1 not seem to correspond to the results in figure 1?
+
+--
+
+* why were those particular samples omitted?
+
+--
+
+* where did I get these data?
+
+--
+
+* how did I make that figure?
+
+
+---
+background-image: url(https://media.giphy.com/media/MEtSuIu6qu0HC/giphy.gif)
+background-position: 50% 50%
+background-size: 50%
+class: inverse
+
+<br>
+
+basically, if the thought of redoing your analyses is terrifying 😱 then you are doing it wrong (paraphrasing Jenny Bryan)
+
+
+---
+
+#### reproducibility
+
+* Replication is the cornerstone of scientific research, with consistent findings from independent investigators the primary means by which scientific evidence accumulates for or against a hypothesis. 
+
+* The **replicability** of a study is related to the chance that an independent experiment targeting the same scientific question will produce a result consistent with the original study. 
+
+* A variation of this concept, referred to as reproducibility, has emerged as a key minimum acceptable standard, especially for heavily computational research. 
+
+* **Reproducibility** is defined as the ability to recompute data analytic results, given an observed data set and knowledge of the data analysis pipeline. 
+
+
+.footnote[R. Peng [The reproducibility crisis in science: A statistical counterattack](10.1111/j.1740-9713.2015.00827.x)]
+
+
+---
+
+#### reproducibility for scientific reasons
+
+##### given your data, someone else can reproduce your exact results
+
+* increased trustworthiness
+* more rigorous, reliable science
+* learning more from one another's work
+
+"Science should be 'show me', not 'trust me'; it should be 'help me if you can', not 'catch me if you can'."
+
+*-- Philip B. Stark, <a href="https://www.nature.com/articles/d41586-018-05256-0" target="_blank">Nature 2018</a>*
+  
+  
+.footnote[J. Thompson [bit.ly/jlt-rmed2018](bit.ly/jlt-rmed2018)]
+
+
+---
+
+#### reproducibility for personal reasons
+
+* Did I mention that subjects with IDs > 100 are actually kangaroos and should be excluded?
+
+* How does that patient have 15 months of treatment when we only followed people for 12 months?
+
+* I won the lottery 👏 - now my coworker is taking over
+
+* Journal reviews back after 8 months! Time for revisions!
+
+  
+.footnote[J. Thompson [bit.ly/jlt-rmed2018](bit.ly/jlt-rmed2018)]
+
+
+---
+
+#### research data workflow: this is your world (or it will be soon) - .light-blue[now add to that publishing your data and code]
+
+<img src="assets/figures/workflow_with_data.png" width="100%">
+
+.footnote[J. Bryan from http://stat545.com/]
+
+
+---
+
+#### tools we will use during the semester
+
+* Git: distributed version control system
+
+* GitHub: web-based content-hosting platform for collaboration with version control
+
+* Gitkraken: Graphical User Interface for interfacing with Git & GitHub
+
+* R
+
+* SQLite: file-based database
