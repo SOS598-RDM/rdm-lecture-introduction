@@ -40,9 +40,10 @@ library(tidyverse)
 
 * Hands-on exercises with example data, or your own data if available.
 
-* Grades are based on participation, and completion and quality of assignments.
 
---
+---
+
+#### evaluation
 
 .small[
 | component                                | percentage |
