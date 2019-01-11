@@ -79,17 +79,14 @@ participation that enable others to learn from and with you.
 1.  Understand the benefits of a structured approach to managing the
     data produced by research projects and experiments.
     
-2.  Recognize data and metadata quality issues and understand the impact
-    on the value of the data.
-    
-3.  Be able to organize data and prepare metadata to facilitate
+2.  Be able to organize data and prepare metadata to facilitate
     publication of research data.
+    
+3.  Recognize data and metadata quality issues and understand the impact
+    on the value of the data.
     
 4.  Apply data management principles to prepare a Data Management Plan,
     as required by many funding agencies.
-    
-5.  Know where to seek new knowledge in this rapidly evolving field -
-    unless you are keeping up with it, you are falling behind.
 
 ---
 
