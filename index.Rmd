@@ -2,7 +2,7 @@
 title: "Welcome to SOS 598 Research Data Managment"
 subtitle: FALSE
 author: FALSE
-date: "2019-12-11"
+date: "2019-01-11"
 output:
   xaringan::moon_reader:
     lib_dir: libs
