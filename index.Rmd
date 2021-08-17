@@ -1,8 +1,8 @@
 ---
-title: "Welcome to SOS 598 Research Data Managment"
+title: FALSE
 subtitle: FALSE
 author: FALSE
-date: "2019-01-11"
+date: FALSE
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -13,26 +13,16 @@ output:
       countIncrementalSlides: false
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include = FALSE}
 options(htmltools.dir.version = FALSE)
 ```
 
-```{r libraries, include=FALSE}
-
-library(tidyverse)
-# library(kableExtra)
+```{r libraries, include = FALSE, eval = FALSE}
+library(dplyr)
+library(kableExtra)
 ```
 
-#### SOS 598 Research Data Management
-
-* seminar: SOS 598 (201842), 1 credit-hour
-
-* instructors:
-  + Stevan Earl, Data Manager
-  + Philip Tarrant, Director GIOS Informatics & Technology
-
-
----
+class: middle
 
 #### course overview
 
@@ -42,53 +32,65 @@ library(tidyverse)
 
 
 ---
+class: middle
+
+#### learning outcomes
+
+1. Understand the benefits of a structured approach to managing research data.
+    
+2. An introduction to tools and techniques to aid the implementation of
+   workflows that facilitate reproducible researh.
+
+3. Be able to organize data and prepare metadata to facilitate publication of
+   research data.
+    
+4. Recognize data and metadata quality issues and understand the impact on the
+   value of the data.
+    
+5. Apply data management principles to prepare a Data Management Plan as
+   required by many funding agencies.
+
+---
+class: middle
 
 #### evaluation
 
 .small[
-| component                                | percentage |
-| :--------------------------------------- | ---------: |
-| student participation (see below)        |         20 |
-| GitHub account & repository              |         10 |
-| R programming (assignment+review)        |      10+10 |
-| database implementation                  |         10 |
-| dataset publishing (assignment+review)   |      10+10 |
-| Data Management Plan (assignment+review) |      10+10 |
+  | component                                | percentage |
+  | :--------------------------------------- | ---------: |
+  | GitHub account                           |         10 |
+  | student participation*                   |         10 |
+  | data structure                           |         15 |
+  | literate programming                     |         15 |
+  | data management plan (DMP) + review      |      20+10 |
+  | creating metadata + review               |       15+5 |
 ]
 
-**student participation:** Evidence of being prepared for discussion in
-class, including but not limited to having completed reading assignments
-prior to class, contributing insightful comments, and a commitment to
-class activities will demonstrate levels of preparedness and
-participation that enable others to learn from and with you.
-
+.small[
+We encourage **student participation**. Evidence of being prepared for
+discussion in class, including but not limited to having completed reading
+assignments prior to class, contributing insightful comments, and a commitment
+to class activities will demonstrate levels of preparedness and participation
+that enable others to learn from and with you.
+]
 
 ---
+class: middle, inverse
 
 #### office hours
 
-* Monday 3-5, but, really, just about any time by appointment
+- campus: before class  
+- Zoom: by appointment (just about any time)
 
-<iframe src="https://www.asu.edu/map/interactive/" width="1080" height="960" frameBorder="0"</iframe>
+
+---
+class: middle, center
+
+readings, materials, assignments, etc.
 
 
 ---
-
-#### learning outcomes
-
-1.  Understand the benefits of a structured approach to managing the
-    data produced by research projects and experiments.
-    
-2.  Be able to organize data and prepare metadata to facilitate
-    publication of research data.
-    
-3.  Recognize data and metadata quality issues and understand the impact
-    on the value of the data.
-    
-4.  Apply data management principles to prepare a Data Management Plan,
-    as required by many funding agencies.
-
----
+class: middle
 
 #### research data workflow: this is your world (or it will be soon)
 
@@ -98,20 +100,9 @@ participation that enable others to learn from and with you.
 
 
 ---
-
-* how do you keep that up-to-date?
-
---
+class: middle
 
 * what if something changes, what if something needs to be redone - how do you manage that?
-
---
-
-* why do the results in table 1 not seem to correspond to the results in figure 1?
-
---
-
-* why were those particular samples omitted?
 
 --
 
@@ -130,84 +121,267 @@ class: inverse
 
 <br>
 
-basically, if the thought of redoing your analyses is terrifying 😱 then you are doing it wrong (paraphrasing Jenny Bryan)
+*basically, if the thought of redoing your analyses is terrifying then you are doing it wrong*  
+<br>
+J. Bryan
+
+???
+
+#### doing it wrong
 
 
 ---
+class: middle
 
-#### reproducibility
+#### research data workflow: this is your world (or it will be soon)
+.light-blue[now add to that publishing your data and code]
 
-* Replication is the cornerstone of scientific research, with consistent findings from independent investigators the primary means by which scientific evidence accumulates for or against a hypothesis. 
+<img src="assets/figures/workflow_with_data.png" width="100%">
 
-* The **replicability** of a study is related to the chance that an independent experiment targeting the same scientific question will produce a result consistent with the original study. 
-
-* A variation of this concept, referred to as reproducibility, has emerged as a key minimum acceptable standard, especially for heavily computational research. 
-
-* **Reproducibility** is defined as the ability to recompute data analytic results, given an observed data set and knowledge of the data analysis pipeline. 
-
-
-.footnote[R. Peng [The reproducibility crisis in science: A statistical counterattack](10.1111/j.1740-9713.2015.00827.x)]
+.footnote[
+J. Bryan from http://stat545.com/
+]
 
 
 ---
+class: middle
 
-#### reproducibility for scientific reasons
+**reproducible research** is the ability to recompute data analytic results, given an observed data set and knowledge of the data analysis pipeline.
 
-##### given your data, someone else can reproduce your exact results
+.footnote[
+Peng 2015 [*The reproducibility crisis in science: A statistical counterattack*](https://doi.org/10.1111/j.1740-9713.2015.00827.x)
+]
+
+???
+
+#### reproducible research
+
+
+---
+class: middle
+
+.center[
+<img src="assets/figures/peng_2011.png" width="95%"></img>
+]
+
+.footnote[
+Peng 2011 [*Reproducible Research in Computational Science*](10.1126/science.1213847)
+]
+
+???
+
+#### reproducibility spectrum
+
+- including the code is important because it documents the decision-making process Powers and Hampton 2019
+
+
+---
+class: middle, inverse
+
+Replicating studies remains the gold standard for rigorous scientific research, but reproducibility is increasingly viewed as a *minimum standard* that all scientists should strive toward.
+
+.footnote[
+Alson and Rick 2021 [*A Beginner's Guide to Conducting Reproducible Research*](https://doi.org/10.1002/bes2.1801)
+]
+
+???
+
+#### minimum standard
+
+
+---
+class: middle
+
+**reproducibility for scientific reasons**
 
 * increased trustworthiness
 * more rigorous, reliable science
 * learning more from one another's work
 
-"Science should be 'show me', not 'trust me'; it should be 'help me if you can', not 'catch me if you can'."
-
-*-- Philip B. Stark, <a href="https://www.nature.com/articles/d41586-018-05256-0" target="_blank">Nature 2018</a>*
   
-  
-.footnote[J. Thompson [bit.ly/jlt-rmed2018](bit.ly/jlt-rmed2018)]
+.footnote[
+Thompson 2018 [*The Life & Times of a Reproducible Clinical Project in R*](https://bit.ly/jlt-rmed2018)
+]
 
+???
+
+#### reproducibility for scientific reasons
 
 ---
+class: middle
+
+**reproducibility for personal reasons**
+
+- helps researchers remember how and why they did *x*
+- enables researchers to quickly and simply modify figures, tables, etc.
+- enables quick reconfiguration of previously conducted research tasks
+
+  
+.footnote[
+Alson and Rick 2021 [*A Beginner's Guide to Conducting Reproducible Research*](https://doi.org/10.1002/bes2.1801)
+]
+
+???
 
 #### reproducibility for personal reasons
 
-* Did I mention that subjects with IDs > 100 are actually kangaroos and should be excluded?
 
-* How does that patient have 15 months of treatment when we only followed people for 12 months?
+---
+class: middle, center
 
-* I won the lottery 👏 - now my coworker is taking over
+# how?
 
-* Journal reviews back after 8 months! Time for revisions!
 
+---
+class: middle
+
+- version control
+- environments
+- project organization
+- naming things
+- data formats
+- metadata
+
+
+---
+class: middle
+
+most basic principle for reproducible research is to **do everything via code**
+
+* downloading data from the web
+* converting an Excel file to CSV
+* renaming columns or variables
+* omitting bad samples or data points
+
+*...do all of these programatically*
+
+.footnote[Broman 2016 [*Steps toward reproducible research*](https://bit.ly/jsm2016)]
+
+???
+
+#### everything by code
+
+
+---
+class: middle
+
+#### learn a language, any language, just do it
+
+.pull-left[
+  <img src="assets/figures/rlogo.jpg" width="100%">
+]
+
+.pull-right[
+  <img src="assets/figures/python-logo.png" width="70%">
+]
+
+
+---
+class: middle
+
+#### spreadsheets: the dark side
+
+.center[
+  <img src="assets/figures/excel_errors_wash_post.png" width="80%">
+]
+
+
+---
+class: middle
+
+#### spreadsheets versus scripting
+
+consider, we want to remove samples that we feel may have been contaminated...
+
+.pull-left[
+
+  **in a R script**
+  <hr>
+  ```r
+  some work...
+  ```
   
-.footnote[J. Thompson [bit.ly/jlt-rmed2018](bit.ly/jlt-rmed2018)]
+
+.small[
+.light-blue[
+  *comment code:* remove samples 4 and 5 that may have been compromised due to wading upstream during sampling
+  ]
+]
+  
+  ```r
+  chemistry_data %>%
+    filter(!sampleID %in% c(4,5))
+  ```
+  
+  ```r
+  ...more work
+  ```
+]
+
+.pull-right[
+
+  **in a spreadsheet**
+  <hr>
+  <img src="assets/figures/spreadsheet_remove_samples.png" width="105%">
+  
+]
+
+
+---
+background-image: url(https://media.giphy.com/media/PnXRAFOJFCt3i/giphy.gif)
+background-position: 50% 50%
+background-size: 50%
+class: inverse
+
+#### I am not saying it is easy
+
+
+---
+class: middle
+
+#### OHI: nature ecology & evolution
+
+.center[
+  <img src="assets/figures/lowndes_title.png" width="90%">
+]
+
+.footnote[
+Lowndes et al. (2017) [Our path to better science in less time using open data science tools](https://www.nature.com/articles/s41559-017-0160)
+]
 
 
 ---
 
-#### research data workflow: this is your world (or it will be soon) - .light-blue[now add to that publishing your data and code]
+#### OHI: evolution of a workflow
 
-<img src="assets/figures/workflow_with_data.png" width="100%">
+.center[
+  <img src="assets/figures/lowndes_figure1.jpg" width="80%">
+]
 
-.footnote[J. Bryan from http://stat545.com/]
-
-
----
-
-#### tools we will use during the semester
-
-* Git: distributed version control system
-
-* GitHub: web-based content-hosting platform for collaboration with version control
-
-* Gitkraken: Graphical User Interface for interfacing with Git & GitHub
-
-* R: software environment for statistical computing and graphics
-
-* SQLite: small, fast, self-contained (file-based), high-reliability, full-featured, SQL database engine
+.footnote[
+Lowndes et al. (2017) [Our path to better science in less time using open data science tools](https://www.nature.com/articles/s41559-017-0160)
+]
 
 
 ---
+class: middle, inverse
+
+*It's not thinking, 'This is easiest for myself right now.' It's thinking, 'When I'm working on this next week, next month, right before I graduate — how do I set myself up so that it’s easier later?'*  
+<br>
+J. Lowndes
+
+
+.footnote[
+Perkel 2018 [*A toolkit for data transparency takes shape*](https://doi.org/10.1038/d41586-018-05990-5)
+]
+
+???
+
+# thinking ahead
+
+
+---
+class: middle
 
 Kieran Healy on two revolutions in computing:
 
@@ -216,4 +390,6 @@ Kieran Healy on two revolutions in computing:
 "On the other side, tools for coding, data analysis, and writing are also revolutionary but mostly work by gluing together separate, specialized widgets that do much less to hide the operation system layer, and require knowledge of things like the file system."
 
 
-.footnote[K. Healy [The Plain Person's Guide to Plain Text Social Science](https://kieranhealy.org/files/papers/plain-person-text.pdf)]
+.footnote[
+Healy 2020 [The Plain Person's Guide to Plain Text Social Science](https://kieranhealy.org/files/papers/plain-person-text.pdf)
+]

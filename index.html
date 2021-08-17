@@ -1,37 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="" xml:lang="">
   <head>
-    <title>Welcome to SOS 598 Research Data Managment</title>
-    <meta charset="utf-8">
-    <meta name="date" content="2019-01-11" />
+    <title>index.knit</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/my-theme.css" type="text/css" />
     <link rel="stylesheet" href="libs/remark-css/default-fonts.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
-
-# Welcome to SOS 598 Research Data Managment
-### 2019-01-11
-
----
 
 
 
 
 
 
-#### SOS 598 Research Data Management
-
-* seminar: SOS 598 (201842), 1 credit-hour
-
-* instructors:
-  + Stevan Earl, Data Manager
-  + Philip Tarrant, Director GIOS Informatics &amp; Technology
-
-
----
+class: middle
 
 #### course overview
 
@@ -41,53 +26,65 @@ class: center, middle, inverse, title-slide
 
 
 ---
+class: middle
+
+#### learning outcomes
+
+1. Understand the benefits of a structured approach to managing research data.
+    
+2. An introduction to tools and techniques to aid the implementation of
+   workflows that facilitate reproducible researh.
+
+3. Be able to organize data and prepare metadata to facilitate publication of
+   research data.
+    
+4. Recognize data and metadata quality issues and understand the impact on the
+   value of the data.
+    
+5. Apply data management principles to prepare a Data Management Plan as
+   required by many funding agencies.
+
+---
+class: middle
 
 #### evaluation
 
 .small[
-| component                                | percentage |
-| :--------------------------------------- | ---------: |
-| student participation (see below)        |         20 |
-| GitHub account &amp; repository              |         10 |
-| R programming (assignment+review)        |      10+10 |
-| database implementation                  |         10 |
-| dataset publishing (assignment+review)   |      10+10 |
-| Data Management Plan (assignment+review) |      10+10 |
+  | component                                | percentage |
+  | :--------------------------------------- | ---------: |
+  | GitHub account                           |         10 |
+  | student participation*                   |         10 |
+  | data structure                           |         15 |
+  | literate programming                     |         15 |
+  | data management plan (DMP) + review      |      20+10 |
+  | creating metadata + review               |       15+5 |
 ]
 
-**student participation:** Evidence of being prepared for discussion in
-class, including but not limited to having completed reading assignments
-prior to class, contributing insightful comments, and a commitment to
-class activities will demonstrate levels of preparedness and
-participation that enable others to learn from and with you.
-
+.small[
+We encourage **student participation**. Evidence of being prepared for
+discussion in class, including but not limited to having completed reading
+assignments prior to class, contributing insightful comments, and a commitment
+to class activities will demonstrate levels of preparedness and participation
+that enable others to learn from and with you.
+]
 
 ---
+class: middle, inverse
 
 #### office hours
 
-* Monday 3-5, but, really, just about any time by appointment
+- campus: before class  
+- Zoom: by appointment (just about any time)
 
-&lt;iframe src="https://www.asu.edu/map/interactive/" width="1080" height="960" frameBorder="0"&lt;/iframe&gt;
+
+---
+class: middle, center
+
+readings, materials, assignments, etc.
 
 
 ---
-
-#### learning outcomes
-
-1.  Understand the benefits of a structured approach to managing the
-    data produced by research projects and experiments.
-    
-2.  Be able to organize data and prepare metadata to facilitate
-    publication of research data.
-    
-3.  Recognize data and metadata quality issues and understand the impact
-    on the value of the data.
-    
-4.  Apply data management principles to prepare a Data Management Plan,
-    as required by many funding agencies.
-
----
+class: middle
 
 #### research data workflow: this is your world (or it will be soon)
 
@@ -97,20 +94,9 @@ participation that enable others to learn from and with you.
 
 
 ---
-
-* how do you keep that up-to-date?
-
---
+class: middle
 
 * what if something changes, what if something needs to be redone - how do you manage that?
-
---
-
-* why do the results in table 1 not seem to correspond to the results in figure 1?
-
---
-
-* why were those particular samples omitted?
 
 --
 
@@ -129,84 +115,267 @@ class: inverse
 
 &lt;br&gt;
 
-basically, if the thought of redoing your analyses is terrifying 😱 then you are doing it wrong (paraphrasing Jenny Bryan)
+*basically, if the thought of redoing your analyses is terrifying then you are doing it wrong*  
+&lt;br&gt;
+J. Bryan
+
+???
+
+#### doing it wrong
 
 
 ---
+class: middle
 
-#### reproducibility
+#### research data workflow: this is your world (or it will be soon)
+.light-blue[now add to that publishing your data and code]
 
-* Replication is the cornerstone of scientific research, with consistent findings from independent investigators the primary means by which scientific evidence accumulates for or against a hypothesis. 
+&lt;img src="assets/figures/workflow_with_data.png" width="100%"&gt;
 
-* The **replicability** of a study is related to the chance that an independent experiment targeting the same scientific question will produce a result consistent with the original study. 
-
-* A variation of this concept, referred to as reproducibility, has emerged as a key minimum acceptable standard, especially for heavily computational research. 
-
-* **Reproducibility** is defined as the ability to recompute data analytic results, given an observed data set and knowledge of the data analysis pipeline. 
-
-
-.footnote[R. Peng [The reproducibility crisis in science: A statistical counterattack](10.1111/j.1740-9713.2015.00827.x)]
+.footnote[
+J. Bryan from http://stat545.com/
+]
 
 
 ---
+class: middle
 
-#### reproducibility for scientific reasons
+**reproducible research** is the ability to recompute data analytic results, given an observed data set and knowledge of the data analysis pipeline.
 
-##### given your data, someone else can reproduce your exact results
+.footnote[
+Peng 2015 [*The reproducibility crisis in science: A statistical counterattack*](https://doi.org/10.1111/j.1740-9713.2015.00827.x)
+]
+
+???
+
+#### reproducible research
+
+
+---
+class: middle
+
+.center[
+&lt;img src="assets/figures/peng_2011.png" width="95%"&gt;&lt;/img&gt;
+]
+
+.footnote[
+Peng 2011 [*Reproducible Research in Computational Science*](10.1126/science.1213847)
+]
+
+???
+
+#### reproducibility spectrum
+
+- including the code is important because it documents the decision-making process Powers and Hampton 2019
+
+
+---
+class: middle, inverse
+
+Replicating studies remains the gold standard for rigorous scientific research, but reproducibility is increasingly viewed as a *minimum standard* that all scientists should strive toward.
+
+.footnote[
+Alson and Rick 2021 [*A Beginner's Guide to Conducting Reproducible Research*](https://doi.org/10.1002/bes2.1801)
+]
+
+???
+
+#### minimum standard
+
+
+---
+class: middle
+
+**reproducibility for scientific reasons**
 
 * increased trustworthiness
 * more rigorous, reliable science
 * learning more from one another's work
 
-"Science should be 'show me', not 'trust me'; it should be 'help me if you can', not 'catch me if you can'."
-
-*-- Philip B. Stark, &lt;a href="https://www.nature.com/articles/d41586-018-05256-0" target="_blank"&gt;Nature 2018&lt;/a&gt;*
   
-  
-.footnote[J. Thompson [bit.ly/jlt-rmed2018](bit.ly/jlt-rmed2018)]
+.footnote[
+Thompson 2018 [*The Life &amp; Times of a Reproducible Clinical Project in R*](https://bit.ly/jlt-rmed2018)
+]
 
+???
+
+#### reproducibility for scientific reasons
 
 ---
+class: middle
+
+**reproducibility for personal reasons**
+
+- helps researchers remember how and why they did *x*
+- enables researchers to quickly and simply modify figures, tables, etc.
+- enables quick reconfiguration of previously conducted research tasks
+
+  
+.footnote[
+Alson and Rick 2021 [*A Beginner's Guide to Conducting Reproducible Research*](https://doi.org/10.1002/bes2.1801)
+]
+
+???
 
 #### reproducibility for personal reasons
 
-* Did I mention that subjects with IDs &gt; 100 are actually kangaroos and should be excluded?
 
-* How does that patient have 15 months of treatment when we only followed people for 12 months?
+---
+class: middle, center
 
-* I won the lottery 👏 - now my coworker is taking over
+# how?
 
-* Journal reviews back after 8 months! Time for revisions!
 
+---
+class: middle
+
+- version control
+- environments
+- project organization
+- naming things
+- data formats
+- metadata
+
+
+---
+class: middle
+
+most basic principle for reproducible research is to **do everything via code**
+
+* downloading data from the web
+* converting an Excel file to CSV
+* renaming columns or variables
+* omitting bad samples or data points
+
+*...do all of these programatically*
+
+.footnote[Broman 2016 [*Steps toward reproducible research*](https://bit.ly/jsm2016)]
+
+???
+
+#### everything by code
+
+
+---
+class: middle
+
+#### learn a language, any language, just do it
+
+.pull-left[
+  &lt;img src="assets/figures/rlogo.jpg" width="100%"&gt;
+]
+
+.pull-right[
+  &lt;img src="assets/figures/python-logo.png" width="70%"&gt;
+]
+
+
+---
+class: middle
+
+#### spreadsheets: the dark side
+
+.center[
+  &lt;img src="assets/figures/excel_errors_wash_post.png" width="80%"&gt;
+]
+
+
+---
+class: middle
+
+#### spreadsheets versus scripting
+
+consider, we want to remove samples that we feel may have been contaminated...
+
+.pull-left[
+
+  **in a R script**
+  &lt;hr&gt;
+  ```r
+  some work...
+  ```
   
-.footnote[J. Thompson [bit.ly/jlt-rmed2018](bit.ly/jlt-rmed2018)]
+
+.small[
+.light-blue[
+  *comment code:* remove samples 4 and 5 that may have been compromised due to wading upstream during sampling
+  ]
+]
+  
+  ```r
+  chemistry_data %&gt;%
+    filter(!sampleID %in% c(4,5))
+  ```
+  
+  ```r
+  ...more work
+  ```
+]
+
+.pull-right[
+
+  **in a spreadsheet**
+  &lt;hr&gt;
+  &lt;img src="assets/figures/spreadsheet_remove_samples.png" width="105%"&gt;
+  
+]
+
+
+---
+background-image: url(https://media.giphy.com/media/PnXRAFOJFCt3i/giphy.gif)
+background-position: 50% 50%
+background-size: 50%
+class: inverse
+
+#### I am not saying it is easy
+
+
+---
+class: middle
+
+#### OHI: nature ecology &amp; evolution
+
+.center[
+  &lt;img src="assets/figures/lowndes_title.png" width="90%"&gt;
+]
+
+.footnote[
+Lowndes et al. (2017) [Our path to better science in less time using open data science tools](https://www.nature.com/articles/s41559-017-0160)
+]
 
 
 ---
 
-#### research data workflow: this is your world (or it will be soon) - .light-blue[now add to that publishing your data and code]
+#### OHI: evolution of a workflow
 
-&lt;img src="assets/figures/workflow_with_data.png" width="100%"&gt;
+.center[
+  &lt;img src="assets/figures/lowndes_figure1.jpg" width="80%"&gt;
+]
 
-.footnote[J. Bryan from http://stat545.com/]
-
-
----
-
-#### tools we will use during the semester
-
-* Git: distributed version control system
-
-* GitHub: web-based content-hosting platform for collaboration with version control
-
-* Gitkraken: Graphical User Interface for interfacing with Git &amp; GitHub
-
-* R: software environment for statistical computing and graphics
-
-* SQLite: small, fast, self-contained (file-based), high-reliability, full-featured, SQL database engine
+.footnote[
+Lowndes et al. (2017) [Our path to better science in less time using open data science tools](https://www.nature.com/articles/s41559-017-0160)
+]
 
 
 ---
+class: middle, inverse
+
+*It's not thinking, 'This is easiest for myself right now.' It's thinking, 'When I'm working on this next week, next month, right before I graduate — how do I set myself up so that it’s easier later?'*  
+&lt;br&gt;
+J. Lowndes
+
+
+.footnote[
+Perkel 2018 [*A toolkit for data transparency takes shape*](https://doi.org/10.1038/d41586-018-05990-5)
+]
+
+???
+
+# thinking ahead
+
+
+---
+class: middle
 
 Kieran Healy on two revolutions in computing:
 
@@ -215,8 +384,11 @@ Kieran Healy on two revolutions in computing:
 "On the other side, tools for coding, data analysis, and writing are also revolutionary but mostly work by gluing together separate, specialized widgets that do much less to hide the operation system layer, and require knowledge of things like the file system."
 
 
-.footnote[K. Healy [The Plain Person's Guide to Plain Text Social Science](https://kieranhealy.org/files/papers/plain-person-text.pdf)]
+.footnote[
+Healy 2020 [The Plain Person's Guide to Plain Text Social Science](https://kieranhealy.org/files/papers/plain-person-text.pdf)
+]
     </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
@@ -226,16 +398,89 @@ Kieran Healy on two revolutions in computing:
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
 });
-(function() {
-  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
   if (!r) return;
   s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
   d.head.appendChild(s);
-})();</script>
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
-(function() {
-  var i, text, code, codes = document.getElementsByTagName('code');
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
   for (i = 0; i < codes.length;) {
     code = codes[i];
     if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
@@ -249,7 +494,8 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
     i++;
   }
-})();
+};
+slideshow._releaseMath(document);
 </script>
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
